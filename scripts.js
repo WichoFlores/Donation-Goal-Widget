@@ -23,13 +23,17 @@ function updateProgressBar(donated) {
     // Update the total donated amount
     totalDonated += donated;
 
+    if (totalDonated > 100) {
+      totalDonated = 100;
+      document.getElementById('donateButton').classList.add('disabled');
+      document.getElementById('donateButton').textContent = 'Thanks!';
+    }
+
     const progressBar = document.getElementById('progressBar');
     const checkpoints = document.querySelectorAll('.checkpoint');
     const rewardConainers = document.querySelectorAll('.rewardContainer');
     const rewards = document.querySelectorAll('.reward');
   
-    // Update the width of the progress bar
-
     // Get total width and calculate percentage
     const maxWidth = progressBar.parentNode.offsetWidth;
     // Max width should be total amount
@@ -41,7 +45,6 @@ function updateProgressBar(donated) {
     // Update checkpoints
     checkpoints.forEach((checkpoint, index) => {
       const value = parseInt(checkpoint.getAttribute('data-value'), 10);
-      console.log(totalDonated, value)
       if (totalDonated >= value) {
         checkpoint.classList.add('active');
         rewardConainers[index].classList.add('active');
@@ -60,6 +63,7 @@ function donate() {
 
 document.addEventListener('DOMContentLoaded', function () {
   const rewardsContainer = document.querySelector('#rewardsContainer');
+  const checkPointsContainer = document.querySelector('#checkPointsContainer');
   goals.forEach((goal) => {
     const rewardContainer = document.createElement('div');
     rewardContainer.classList.add('rewardContainer');
@@ -68,9 +72,11 @@ document.addEventListener('DOMContentLoaded', function () {
     rewardContainer.appendChild(reward);
     rewardsContainer.appendChild(rewardContainer);
     reward.textContent = goal.icon;
-    // add ammount as data attribute
-    rewardContainer.setAttribute('data-value', goal.amount);
-  });
 
-    updateProgressBar(10);  // Call this function with the current progress value
+    // Add checkpoints
+    const checkpoint = document.createElement('div');
+    checkpoint.classList.add('checkpoint');
+    checkpoint.setAttribute('data-value', goal.amount);
+    checkPointsContainer.appendChild(checkpoint);
+  });
 });
