@@ -1,0 +1,161 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #333;
+  overflow-x: hidden;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  gap: 20px;
+  height: 100vh;
+  width: 100vw;
+  background-color: #B4A6EB;
+}
+
+.widget {
+  position: relative;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 87px;
+  width: 483px;
+  border-radius: 35px;
+}
+
+#rewardsContainer {
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 6px;
+}
+
+.rewardContainer {
+  width: 100%;
+  border-radius: 50%;
+  background-color: white;
+  height: 85px;
+  width: 85px;
+  border: 5px solid #B4A6EB;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 140px;
+  transition: margin-bottom 0.25s, height 0.25s, width 0.25s;
+}
+
+.rewardContainer.active {
+  border: 5px solid transparent;
+  margin-bottom: 135px;
+  height: 80px;
+  width: 80px;
+}
+
+.reward {
+  color: #B4A6EB;
+  font-size: 28px;
+  transition: font-size 0.25s;
+}
+
+.reward.active {
+  color: #876DEC;
+  font-size: 32px;
+}
+
+#progressBarContainer {
+  margin-top: 16px;
+  width: 80%;
+  height: 5px;
+  background-color: #B4A6EB;
+
+  display: flex;
+  align-items: center;
+  border-radius: 12px;
+}
+
+#progressBar {
+  position: absolute;
+  width: 0;
+  height: 100%;
+  height: 5px;
+  background-color: #876DEC;
+  transition: width 0.25s;
+  border-radius: 12px;
+}
+
+#checkPointsContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.checkpoint {
+  height: 20px;
+  width: 5px;
+  background-color: #B4A6EB;
+  transition: height 0.25s;
+
+  margin-bottom: 20px;
+
+  border-radius: 12px;
+}
+
+.checkpoint.active {
+  background-color: #876DEC;
+}
+
+
+.button-29 {
+  align-items: center;
+  appearance: none;
+  background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono",monospace;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 18px;
+}
+
+.button-29:focus {
+  box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+}
+
+.button-29:hover {
+  box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.button-29:active {
+  box-shadow: #3c4fe0 0 3px 7px inset;
+  transform: translateY(2px);
+}
